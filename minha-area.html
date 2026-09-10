@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finspots — Minha Área</title>
+<link rel="icon" type="image/png" href="assets/img/finspots-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #071730;
+    --quase-preto: #00031B;
+    --laranja: #FF5500;
+    --laranja-fraco: rgba(255,85,0,0.13);
+    --branco: #FFFFFF;
+    --suave: #A9B2D6;
+    --fraco: #6B76A8;
+    --borda: rgba(255,255,255,0.09);
+    --verde: #2ECC71;
+    --verde-fraco: rgba(46,204,113,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: var(--azul); color: var(--branco);
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 48px 0; }
+
+  h1 { font-size: clamp(24px, 3.6vw, 30px); font-weight: 800; }
+  p { color: var(--suave); font-size: 15px; }
+
+  header { padding: 26px 0; text-align: center; }
+  .logo { display: inline-block; }
+  .logo img { height: 30px; }
+
+  .aviso-nao-conectado {
+    background: rgba(255,85,0,0.1); border: 1px solid var(--laranja); border-radius: 10px;
+    padding: 14px 18px; font-size: 13px; color: var(--suave); margin-bottom: 32px;
+  }
+  .aviso-nao-conectado strong { color: var(--laranja); }
+
+  .card-relatorio {
+    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 16px;
+    padding: 28px; margin-bottom: 20px;
+  }
+  .card-relatorio .topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .card-relatorio h2 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .card-relatorio .data { font-size: 12.5px; color: var(--fraco); }
+
+  .selo-status { font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+  .selo-status.pronto { background: var(--verde-fraco); color: var(--verde); }
+  .selo-status.processando { background: var(--laranja-fraco); color: var(--laranja); }
+
+  .placeholder-video {
+    background: var(--azul); border: 1px dashed var(--borda); border-radius: 12px;
+    aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; color: var(--fraco); text-align: center; margin-bottom: 16px;
+  }
+  .play-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--laranja); display: flex; align-items: center; justify-content: center; }
+  .play-icon svg { width: 16px; height: 16px; fill: var(--branco); }
+  .placeholder-video p { font-size: 12.5px; color: var(--fraco); }
+
+  .acoes-card { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; font-family: inherit; font-size: 13.5px; font-weight: 600;
+    text-decoration: none; padding: 11px 20px; border-radius: 8px; border: none; cursor: pointer;
+  }
+  .btn-primario { background: var(--laranja); color: var(--branco); }
+  .btn-secundario { background: transparent; color: var(--suave); border: 1px solid var(--borda); }
+
+  .processando-msg { font-size: 13.5px; color: var(--fraco); text-align: center; padding: 30px 20px; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 12.5px; color: var(--fraco); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><img src="assets/img/finspots-logo.png" alt="Finspots"></a>
+</header>
+
+<section>
+  <div class="wrap">
+    <h1>Olá! Aqui estão seus relatórios.</h1>
+    <p style="margin-top:10px;">Tudo que a Finspots já entregou pra você, num só lugar.</p>
+
+    <div class="aviso-nao-conectado" style="margin-top:28px;">
+      <strong>Nota interna:</strong> os dois cartões abaixo são exemplo, pra mostrar como a página fica. A versão real busca os dados de <code>GET /minha-area/relatorios</code> (autenticado pela sessão do link mágico) e monta um cartão desses pra cada item da resposta — o vídeo/PDF de verdade vêm de URLs temporárias assinadas do R2, não de arquivo fixo.
+    </div>
+
+    <!-- Exemplo de relatório pronto -->
+    <div class="card-relatorio">
+      <div class="topo">
+        <div>
+          <h2>Diagnóstico Financeiro</h2>
+          <div class="data">Entregue em 12 de setembro de 2026</div>
+        </div>
+        <span class="selo-status pronto">Pronto</span>
+      </div>
+      <div class="placeholder-video">
+        <span class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <p>Vídeo personalizado do diagnóstico (exemplo)</p>
+      </div>
+      <div class="acoes-card">
+        <a href="#" class="btn btn-primario">Baixar PDF</a>
+        <a href="#" class="btn btn-secundario">Assistir novamente</a>
+      </div>
+    </div>
+
+    <!-- Exemplo de relatório em processamento (Mensalidade) -->
+    <div class="card-relatorio">
+      <div class="topo">
+        <div>
+          <h2>Acompanhamento Mensal — Outubro 2026</h2>
+          <div class="data">Dados recebidos em 3 de outubro de 2026</div>
+        </div>
+        <span class="selo-status processando">Processando</span>
+      </div>
+      <div class="processando-msg">Sua análise está sendo gerada. Você recebe um email assim que estiver pronta.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>Finspots — Inteligência de Vendas e Finanças para E-commerce</footer>
+
+</body>
+</html>

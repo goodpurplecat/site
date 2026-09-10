@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finspots — Termos de Uso</title>
+<meta name="description" content="Termos de uso da Finspots: regras e condições para utilização do site e dos serviços de diagnóstico financeiro e acompanhamento mensal.">
+<link rel="icon" type="image/png" href="assets/img/finspots-favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Finspots">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Finspots — Termos de Uso">
+<meta property="og:description" content="Termos de uso da Finspots: regras e condições para utilização do site e dos serviços de diagnóstico financeiro e acompanhamento mensal.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #071730;
+    --quase-preto: #00031B;
+    --laranja: #FF5500;
+    --laranja-fraco: rgba(255,85,0,0.13);
+    --branco: #FFFFFF;
+    --suave: #A9B2D6;
+    --fraco: #6B76A8;
+    --borda: rgba(255,255,255,0.09);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; min-height: 100%; }
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: var(--azul); color: var(--branco);
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  #bg-particulas { position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; pointer-events:none; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+  .wrap-estreito { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+  main { flex: 1; display: flex; align-items: center; padding: 60px 0; }
+  .central { text-align: center; width: 100%; }
+  .central p { max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  h1 { font-size: clamp(28px, 4.2vw, 38px); font-weight: 800; line-height: 1.2; letter-spacing: -0.4px; }
+  p { color: var(--suave); font-size: 16px; }
+
+  .btn {
+    display: inline-block; font-family: inherit; font-size: 14px; font-weight: 600;
+    text-decoration: none; padding: 11px 22px; border-radius: 9px; border: none; cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primario { background: var(--laranja); color: var(--branco); }
+  .btn-secundario { background: transparent; color: var(--branco); border: 1.5px solid var(--borda); }
+
+  header { padding: 26px 0; }
+  .header-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 21px; font-weight: 800; letter-spacing: -0.3px; text-decoration: none; }
+  .logo .spots { color: var(--laranja); }
+  .logo .mira {
+    display: inline-block; width: 0.6em; height: 0.6em; border-radius: 50%;
+    border: 0.13em solid var(--laranja); position: relative; vertical-align: -0.02em;
+  }
+  .logo .mira::after { content: ""; position: absolute; inset: 0.16em; background: var(--laranja); border-radius: 50%; }
+  .nav-links { display: flex; gap: 26px; font-size: 14px; align-items: center; }
+  .nav-links > a { text-decoration: none; color: var(--suave); }
+  .nav-links > a:hover { color: var(--branco); }
+  .nav-links a.ativo { color: var(--branco); font-weight: 600; }
+  .logo img { height: 30px; display: block; }
+  .nav-item-dropdown { position: relative; }
+  .nav-item-dropdown > a { text-decoration: none; color: var(--suave); cursor: default; }
+  .nav-item-dropdown:hover > a { color: var(--branco); }
+  .dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 10px;
+    padding: 8px; min-width: 210px; opacity: 0; visibility: hidden;
+    transition: opacity 0.15s ease; margin-top: 12px; text-align: left; z-index: 10;
+  }
+  .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+  .dropdown-menu a { display: block; padding: 10px 14px; border-radius: 7px; font-size: 13.5px; white-space: nowrap; color: var(--suave); text-decoration: none; }
+  .dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--branco); }
+
+  .canais { display: grid; gap: 18px; max-width: 480px; margin: 40px auto 0; text-align: left; }
+  .canal {
+    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 14px;
+    padding: 24px 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .canal .icone-canal {
+    width: 46px; height: 46px; border-radius: 12px; background: var(--laranja-fraco);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .canal .icone-canal svg { width: 21px; height: 21px; stroke: var(--laranja); fill: none; stroke-width: 1.8; }
+  .canal-texto { flex: 1; min-width: 160px; }
+  .canal h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+  .canal p { font-size: 13px; margin: 0; }
+
+  .nota-faq {
+    max-width: 480px; margin: 36px auto 0; font-size: 13.5px; color: var(--fraco);
+  }
+  .nota-faq a { color: var(--laranja); text-decoration: underline; text-underline-offset: 2px; }
+
+  footer { padding: 30px 0; text-align: center; }
+  footer .links { font-size: 13px; color: var(--fraco); }
+  footer .links a { text-decoration: underline; text-underline-offset: 3px; }
+  footer .links span { margin: 0 8px; }
+
+  b, strong { color: var(--branco); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner" style="justify-content:center;">
+    <a href="index.html" class="logo"><img src="assets/img/finspots-logo.png" alt="Finspots" style="height:30px;"></a>
+  </div>
+</header>
+
+<main style="display:block; padding: 70px 0;">
+  <div class="wrap-estreito">
+    <h1 style="margin-bottom:22px;">Termos de uso</h1>
+    <p><b>Rascunho — revisar com um advogado antes de publicar.</b></p>
+    <p style="margin-top:18px;">Este é um modelo inicial de Termos de Uso. Ajuste os pontos abaixo para refletir exatamente como a Finspots opera antes de colocar o site no ar em definitivo.</p>
+    <p style="margin-top:18px;"><b>1. Sobre o serviço</b><br>Descreva o que é o Diagnóstico Financeiro e o Acompanhamento Mensal, como são entregues e em quanto tempo.</p>
+    <p style="margin-top:14px;"><b>2. Pagamento e reembolso</b><br>Explique formas de pagamento aceitas, política de reembolso e cancelamento.</p>
+    <p style="margin-top:14px;"><b>3. Responsabilidades</b><br>Deixe claro que as análises são baseadas nos dados fornecidos pelo cliente e não substituem aconselhamento contábil, jurídico ou de investimentos.</p>
+    <p style="margin-top:14px;"><b>4. Propriedade intelectual</b><br>Relatórios e materiais entregues são para uso do cliente contratante.</p>
+    <p style="margin-top:14px;"><b>5. Contato</b><br>Dúvidas sobre estes termos: contato@finspots.com.br</p>
+    <p style="margin-top:24px; font-size:13px;">Última atualização: [preencher data]</p>
+  </div>
+</main>
+
+<footer>
+  <div class="header-inner">
+    <div class="links">
+      <a href="index.html">Voltar pra Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
