@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --azul: #071932;
+    --azul: #04152e;
     --quase-preto: #00031B;
     --laranja: #FF5500;
     --laranja-fraco: rgba(255,85,0,0.13);
@@ -37,7 +37,7 @@
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     z-index: -1;
-    pointer-events: none;
+    pointer-events: none; filter: blur(1.5px);
   }
 
   a { color: inherit; }
@@ -654,7 +654,7 @@
 <script>
 /**
  * Background de Partículas de Rede — Estilo Flutuante com Profundidade
- * Tom de azul: #1681ff
+ * Tom de azul: #204aa8
  * Efeito inspirado em bokeh/profundidade de campo, com movimento suave e orgânico
  */
 
@@ -663,10 +663,10 @@
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  // Cor base solicitada: #1681ff
-  const AZUL = { r: 22, g: 129, b: 255 };
+  // Cor base solicitada: #204aa8
+  const AZUL = { r: 32, g: 74, b: 168 };
   // Tom mais claro da mesma família — usado só no brilho central das partículas em foco
-  const AZUL_CLARO = { r: 130, g: 190, b: 255 };
+  const AZUL_CLARO = { r: 144, g: 165, b: 212 };
 
   const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
