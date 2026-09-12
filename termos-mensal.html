@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finspots — Contrato do Acompanhamento Mensal</title>
+<meta name="description" content="Termos de uso da Finspots: regras e condições para utilização do site e dos serviços de diagnóstico financeiro e acompanhamento mensal.">
+<link rel="icon" type="image/png" href="assets/img/finspots-favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Finspots">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Finspots — Contrato do Acompanhamento Mensal">
+<meta property="og:description" content="Termos de uso da Finspots: regras e condições para utilização do site e dos serviços de diagnóstico financeiro e acompanhamento mensal.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #071730;
+    --quase-preto: #00031B;
+    --laranja: #FF5500;
+    --laranja-fraco: rgba(255,85,0,0.13);
+    --branco: #FFFFFF;
+    --suave: #A9B2D6;
+    --fraco: #6B76A8;
+    --borda: rgba(255,255,255,0.09);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; min-height: 100%; }
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: var(--azul); color: var(--branco);
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  #bg-particulas { position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; pointer-events:none; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+  .wrap-estreito { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+  main { flex: 1; display: flex; align-items: center; padding: 60px 0; }
+  .central { text-align: center; width: 100%; }
+  .central p { max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  h1 { font-size: clamp(28px, 4.2vw, 38px); font-weight: 800; line-height: 1.2; letter-spacing: -0.4px; }
+  p { color: var(--suave); font-size: 16px; }
+
+  .btn {
+    display: inline-block; font-family: inherit; font-size: 14px; font-weight: 600;
+    text-decoration: none; padding: 11px 22px; border-radius: 9px; border: none; cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primario { background: var(--laranja); color: var(--branco); }
+  .btn-secundario { background: transparent; color: var(--branco); border: 1.5px solid var(--borda); }
+
+  header { padding: 26px 0; }
+  .header-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 21px; font-weight: 800; letter-spacing: -0.3px; text-decoration: none; }
+  .logo .spots { color: var(--laranja); }
+  .logo .mira {
+    display: inline-block; width: 0.6em; height: 0.6em; border-radius: 50%;
+    border: 0.13em solid var(--laranja); position: relative; vertical-align: -0.02em;
+  }
+  .logo .mira::after { content: ""; position: absolute; inset: 0.16em; background: var(--laranja); border-radius: 50%; }
+  .nav-links { display: flex; gap: 26px; font-size: 14px; align-items: center; }
+  .nav-links > a { text-decoration: none; color: var(--suave); }
+  .nav-links > a:hover { color: var(--branco); }
+  .nav-links a.ativo { color: var(--branco); font-weight: 600; }
+  .logo img { height: 30px; display: block; }
+  .nav-item-dropdown { position: relative; }
+  .nav-item-dropdown > a { text-decoration: none; color: var(--suave); cursor: default; }
+  .nav-item-dropdown:hover > a { color: var(--branco); }
+  .dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 10px;
+    padding: 8px; min-width: 210px; opacity: 0; visibility: hidden;
+    transition: opacity 0.15s ease; margin-top: 12px; text-align: left; z-index: 10;
+  }
+  .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+  .dropdown-menu a { display: block; padding: 10px 14px; border-radius: 7px; font-size: 13.5px; white-space: nowrap; color: var(--suave); text-decoration: none; }
+  .dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: var(--branco); }
+
+  .canais { display: grid; gap: 18px; max-width: 480px; margin: 40px auto 0; text-align: left; }
+  .canal {
+    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 14px;
+    padding: 24px 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .canal .icone-canal {
+    width: 46px; height: 46px; border-radius: 12px; background: var(--laranja-fraco);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .canal .icone-canal svg { width: 21px; height: 21px; stroke: var(--laranja); fill: none; stroke-width: 1.8; }
+  .canal-texto { flex: 1; min-width: 160px; }
+  .canal h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+  .canal p { font-size: 13px; margin: 0; }
+
+  .nota-faq {
+    max-width: 480px; margin: 36px auto 0; font-size: 13.5px; color: var(--fraco);
+  }
+  .nota-faq a { color: var(--laranja); text-decoration: underline; text-underline-offset: 2px; }
+
+  footer { padding: 30px 0; text-align: center; }
+  footer .links { font-size: 13px; color: var(--fraco); }
+  footer .links a { text-decoration: underline; text-underline-offset: 3px; }
+  footer .links span { margin: 0 8px; }
+
+  b, strong { color: var(--branco); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner" style="justify-content:center;">
+    <a href="index.html" class="logo"><img src="assets/img/finspots-logo.png" alt="Finspots" style="height:30px;"></a>
+  </div>
+</header>
+<main style="display:block; padding: 70px 0;"><div class="wrap-estreito">
+    <h1 style="margin-bottom:14px;">Contrato de Prestação de Serviços</h1>
+    <p style="color:var(--fraco); font-size:13px;">Acompanhamento Mensal de Inteligência Financeira e de Vendas</p>
+
+    <div style="background:var(--quase-preto); border:1px solid var(--borda); border-radius:10px; padding:16px 18px; margin:24px 0; font-size:12.5px;">
+      Adaptado de um modelo com base jurídica prévia, pra refletir os termos reais da Finspots (valor, forma de pagamento, prazo e cancelamento). Ainda não passou por revisão de advogado própria — recomendado antes de operar em volume.
+    </div>
+
+    <p style="margin-top:20px;"><b>IDENTIFICAÇÃO DAS PARTES</b></p>
+    <p style="margin-top:10px;"><b>CONTRATADA:</b><br>
+    Nome: Helaynne Alessandra Santos Freitas<br>
+    CPF: 092.069.591-40<br>
+    Empresa: FinSpots<br>
+    WhatsApp: (62) 99667-7168</p>
+    <p style="margin-top:14px;"><b>CONTRATANTE:</b><br>
+    Identificada pelos dados informados no ato da contratação através do site oficial da Finspots.</p>
+    <p style="margin-top:14px;">As partes acima identificadas celebram o presente Contrato de Prestação de Serviços, que se regerá pelas cláusulas e condições a seguir.</p>
+
+    <p style="margin-top:24px;"><b>1. Objeto do Contrato</b><br>O presente contrato tem por objeto a prestação de serviço recorrente de acompanhamento mensal de inteligência financeira e de vendas para e-commerce, com análise de dados mensais, comparativo de evolução e entrega de recomendações estratégicas todo mês.</p>
+
+    <p style="margin-top:14px;"><b>2. Escopo dos Serviços</b><br>O acompanhamento mensal incluirá, todo mês, os seguintes serviços:</p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) DRE mensal completo, receita, margem de contribuição, margem líquida e lucro;<br>
+    b) Comparativo com o mês anterior, evolução ou regressão de todos os indicadores;<br>
+    c) Análise de desempenho por canal de venda, qual está lucrando e qual está pesando;<br>
+    d) Inteligência de vendas: top produtos, pior margem, produto parado e saúde da base de clientes;<br>
+    e) Alertas financeiros com score de prioridade, problemas rankeados por impacto;<br>
+    f) Top 3 ações do mês, o que fazer primeiro;<br>
+    g) Análise de ciclo financeiro, risco de caixa mesmo lucrando;<br>
+    h) Acompanhamento de metas, real vs. meta todo mês;<br>
+    i) Relatório PDF com os principais indicadores e insights;<br>
+    j) Vídeo personalizado com a apresentação dos resultados;<br>
+    k) Suporte via WhatsApp.</p>
+    <p style="margin-top:8px; font-size:14px;">Plano contratado: Mensalidade Finspots — até 3 (três) canais de venda.</p>
+    <p style="margin-top:8px; font-size:14px;">Prazo de entrega: em até 3 (três) dias úteis a partir do recebimento completo dos dados de cada mês.</p>
+
+    <p style="margin-top:14px;"><b>3. Prazo de Vigência</b><br>O contrato tem vigência por prazo indeterminado, com início na data de confirmação do primeiro pagamento, podendo ser rescindido conforme a Cláusula 11.</p>
+
+    <p style="margin-top:14px;"><b>4. Valor e Forma de Pagamento</b><br>Valor: R$ 2.800,00 (dois mil e oitocentos reais) por mês, para até 3 (três) canais de venda.<br>Vencimento: cobrança mensal recorrente, processada automaticamente a partir da data de confirmação do primeiro pagamento.<br>Forma de pagamento: processamento automático via Mercado Pago, através do checkout disponibilizado no site oficial da Finspots.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Parágrafo único: o início da execução dos serviços está condicionado à confirmação do primeiro pagamento pelo Mercado Pago.</p>
+
+    <p style="margin-top:14px;"><b>5. Obrigações da Contratada</b></p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) Executar os serviços contratados com competência técnica, diligência e dentro dos prazos estabelecidos;<br>
+    b) Manter sigilo absoluto sobre todas as informações, dados e documentos recebidos da Contratante;<br>
+    c) Comunicar à Contratante, com antecedência, qualquer eventualidade que possa impactar o prazo de entrega;<br>
+    d) Disponibilizar mensalmente o relatório PDF, o vídeo personalizado e os demais entregáveis acordados no escopo.</p>
+
+    <p style="margin-top:14px;"><b>6. Obrigações da Contratante</b></p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) Fornecer mensalmente todos os relatórios exportados das plataformas de venda, dentro do prazo combinado;<br>
+    b) Efetuar o pagamento da mensalidade na forma e prazo estabelecidos neste contrato;<br>
+    c) Manter os dados fornecidos completos, verdadeiros e atualizados.</p>
+
+    <p style="margin-top:14px;"><b>7. Confidencialidade</b><br>A Contratada compromete-se a manter absoluto sigilo sobre todas as informações, dados financeiros, documentos e quaisquer outras informações de natureza confidencial fornecidas pela Contratante, durante e após a vigência deste contrato.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Parágrafo 1º: as informações confidenciais não poderão ser divulgadas ou utilizadas para qualquer finalidade que não seja a execução dos serviços contratados.<br>Parágrafo 2º: para fins de portfólio ou produção de conteúdo, a Contratada poderá utilizar dados e resultados de forma anonimizada, sem identificação da Contratante, desde que não seja possível identificar a empresa.</p>
+
+    <p style="margin-top:14px;"><b>8. Limitação de Responsabilidade</b><br>A Contratada prestará análises, diagnósticos e recomendações com base nas informações fornecidas pela Contratante. A decisão final sobre a implementação das estratégias sugeridas é de responsabilidade exclusiva da Contratante. A Contratada não será responsabilizada por prejuízos ou danos decorrentes de decisões tomadas pela Contratante com base nas análises e recomendações fornecidas.</p>
+
+    <p style="margin-top:14px;"><b>9. Dependência das Informações do Cliente</b><br>A qualidade das análises depende diretamente da qualidade dos dados fornecidos. A Contratada não se responsabiliza por erros, omissões ou inconsistências nos dados fornecidos pela Contratante. Caso sejam identificadas inconsistências relevantes, a Contratada comunicará à Contratante para correção, podendo os prazos ser ajustados.</p>
+
+    <p style="margin-top:14px;"><b>10. Não Garantia de Resultados</b><br>A Contratada não garante resultados financeiros específicos decorrentes da implementação das recomendações fornecidas. Os resultados dependem de fatores relacionados à gestão, operação e mercado da Contratante, sobre os quais a Contratada não possui controle.</p>
+
+    <p style="margin-top:14px;"><b>11. Rescisão</b><br>Este contrato poderá ser rescindido a qualquer momento, por iniciativa da Contratante, sem aviso prévio e sem multa, bastando a solicitação de cancelamento por qualquer canal de contato oficial da Finspots.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Parágrafo 1º: o cancelamento interrompe as cobranças futuras. A Contratante mantém acesso aos serviços já pagos até o fim do ciclo mensal vigente, sem reembolso proporcional do período em curso.<br>Parágrafo 2º: a Contratada poderá rescindir este contrato imediatamente em caso de inadimplemento superior a 10 (dez) dias, ou por descumprimento comprovado de obrigação da Contratante.</p>
+
+    <p style="margin-top:14px;"><b>12. Disposições Gerais e Foro</b><br>Este contrato é regido pelas leis da República Federativa do Brasil. As partes buscarão resolver eventuais divergências por negociação direta. Não sendo possível solução amigável, fica eleito o foro da Comarca de Goiânia, Estado de Goiás, com renúncia a qualquer outro. O presente contrato é assinado digitalmente, com validade jurídica nos termos da Lei nº 14.063/2020.</p>
+
+    <p style="margin-top:14px;"><b>13. Aceite Digital</b><br>Ao marcar a caixa de aceite e prosseguir com o pagamento através do site oficial da Finspots, a Contratante declara ter lido, compreendido e concordado integralmente com os termos deste contrato, valendo tal ato como assinatura digital para todos os efeitos legais, nos termos da Lei nº 14.063/2020. Ficam registrados, como evidência do aceite, o e-mail informado, a data e o horário da confirmação.</p>
+
+    <p style="margin-top:28px; font-size:13px;">Helaynne Alessandra Santos Freitas — CPF: 092.069.591-40 — FinSpots — Contratada</p>
+
+    <p style="margin-top:24px; font-size:13px; color:var(--fraco);">Última atualização: 11 de setembro de 2026</p>
+</div>
+</main>
+
+<footer>
+  <div class="header-inner">
+    <div class="links">
+      <a href="index.html">Voltar pra Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
