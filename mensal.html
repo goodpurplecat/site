@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finspots — Acompanhamento Mensal para E-commerce</title>
+<title>Finspots | Acompanhamento Mensal para E-commerce</title>
 <link rel="icon" type="image/png" href="assets/img/finspots-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +107,7 @@
   .nav-links { display: flex; gap: 26px; font-size: 14px; align-items: center; }
   .nav-links > a { text-decoration: none; color: var(--suave); }
   .nav-links > a:hover { color: var(--branco); }
-  .logo img { height: 30px; display: block; }
+  .logo img { height: 42px; display: block; }
   .nav-item-dropdown { position: relative; }
   .nav-item-dropdown > a { text-decoration: none; color: var(--suave); cursor: default; }
   .nav-item-dropdown:hover > a { color: var(--branco); }
@@ -351,7 +351,7 @@
       </div>
       <div class="item-icone">
         <span class="icone"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-        <div><h3>Evolução clara do negócio</h3><p>Comparativo com o mês anterior — cresceu ou piorou, e por quê.</p></div>
+        <div><h3>Evolução clara do negócio</h3><p>Comparativo com o mês anterior: cresceu ou piorou, e por quê.</p></div>
       </div>
       <div class="item-icone">
         <span class="icone"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg></span>
@@ -363,7 +363,7 @@
       </div>
       <div class="item-icone">
         <span class="icone"><svg viewBox="0 0 24 24"><path d="M10.3 3.9L2.5 18a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
-        <div><h3>Problemas priorizados (sem confusão)</h3><p>Alertas com score de impacto — você foca no que realmente importa.</p></div>
+        <div><h3>Problemas priorizados (sem confusão)</h3><p>Alertas com score de impacto: você foca no que realmente importa.</p></div>
       </div>
       <div class="item-icone">
         <span class="icone"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span>
@@ -437,7 +437,7 @@
     <h2 style="margin-top:4px;">Precisa parar de perder dinheiro onde não vê.</h2>
     <div class="card-oferta">
       <h3>Acompanhamento Mensal Finspots</h3>
-      <div class="preco">R$ 2.800<span style="font-size:16px; color:var(--fraco); font-weight:600;">/mês</span></div>
+      <div class="preco">R$ 1.200<span style="font-size:16px; color:var(--fraco); font-weight:600;">/mês</span></div>
       <div class="preco-nota">Até 3 canais de venda</div>
       <a href="contrato-mensal.html" class="btn btn-primario" style="width:100%; text-align:center; margin-top:20px;">Quero assinar →</a>
     </div>
@@ -463,7 +463,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="marca">Finspots — Inteligência de Vendas e Finanças para E-commerce</div>
+    <div class="marca">Finspots | Inteligência de Vendas e Finanças para E-commerce</div>
     <div class="slogan">Entregamos respostas, não planilhas.</div>
     <div class="links">
       <a href="https://wa.me/5562996677168">WhatsApp</a><span>·</span><a href="termos-mensal.html">Termos</a><span>·</span><a href="privacidade.html">Privacidade</a>
@@ -473,7 +473,7 @@
 
 <script>
 /**
- * Background de Partículas de Rede — Estilo Flutuante com Profundidade
+ * Background de Partículas de Rede: Estilo Flutuante com Profundidade
  * Tom de azul: #204aa8
  * Efeito inspirado em bokeh/profundidade de campo, com movimento suave e orgânico
  */
@@ -485,7 +485,7 @@
 
   // Cor base solicitada: #204aa8
   const AZUL = { r: 32, g: 74, b: 168 };
-  // Tom mais claro da mesma família — usado só no brilho central das partículas em foco
+  // Tom mais claro da mesma família: usado só no brilho central das partículas em foco
   const AZUL_CLARO = { r: 144, g: 165, b: 212 };
 
   const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -609,11 +609,11 @@
       const opacidade = p.opacidadeBase * pulso;
       const tamanho = p.raioBase * p.escalaGlow;
 
-      // halo suave (gradiente pré-renderizado) — dá a maciez e o efeito de profundidade
+      // halo suave (gradiente pré-renderizado), dá a maciez e o efeito de profundidade
       ctx.globalAlpha = opacidade;
       ctx.drawImage(sprite, pos.x - tamanho / 2, pos.y - tamanho / 2, tamanho, tamanho);
 
-      // núcleo nítido — só aparece nas partículas "em foco", reforçando a profundidade
+      // núcleo nítido, só aparece nas partículas "em foco", reforçando a profundidade
       if (p.foco > 0.55) {
         const intensidade = (p.foco - 0.55) / 0.45;
         ctx.globalAlpha = intensidade * 0.8 * pulso;
