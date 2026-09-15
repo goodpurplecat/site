@@ -46,6 +46,8 @@
   }
   .aviso-nao-conectado strong { color: var(--laranja); }
 
+  #carregando { padding: 30px 0; text-align: center; font-size: 13.5px; color: var(--fraco); }
+
   .card-relatorio {
     background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 16px;
     padding: 28px; margin-bottom: 20px;
@@ -57,12 +59,14 @@
   .selo-status { font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
   .selo-status.pronto { background: var(--verde-fraco); color: var(--verde); }
   .selo-status.processando { background: var(--laranja-fraco); color: var(--laranja); }
+  .selo-status.erro { background: var(--laranja-fraco); color: var(--laranja); }
 
-  .placeholder-video {
+  .placeholder-video, .video-relatorio {
     background: var(--azul); border: 1px dashed var(--borda); border-radius: 12px;
     aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 10px; color: var(--fraco); text-align: center; margin-bottom: 16px;
+    gap: 10px; color: var(--fraco); text-align: center; margin-bottom: 16px; width: 100%;
   }
+  .video-relatorio { border-style: solid; background: #000; }
   .play-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--laranja); display: flex; align-items: center; justify-content: center; }
   .play-icon svg { width: 16px; height: 16px; fill: var(--branco); }
   .placeholder-video p { font-size: 12.5px; color: var(--fraco); }
@@ -91,82 +95,158 @@
     <h1>Olá! Aqui estão seus relatórios.</h1>
     <p style="margin-top:10px;">Tudo que a Finspots já entregou pra você, num só lugar.</p>
 
-    <div class="aviso-nao-conectado" style="margin-top:28px;">
-      <strong>Nota interna:</strong> os cartões abaixo são exemplo, pra mostrar como a página fica. A versão real busca os dados de <code>GET /minha-area/relatorios</code> (autenticado pela sessão do link mágico) e monta um cartão desses pra cada item da resposta; o vídeo/PDF de verdade vêm de URLs temporárias assinadas do R2, não de arquivo fixo.
+    <p id="carregando">Carregando seus relatórios...</p>
+    <div class="aviso-nao-conectado" id="erro-lista" style="display:none;">
+      Não foi possível carregar seus relatórios agora. Atualiza a página ou chama no <a href="https://wa.me/5562996677168" target="_blank" rel="noopener" style="color:var(--laranja); text-decoration:underline;">WhatsApp</a> se continuar.
     </div>
 
-    <!--
-    NOVIDADE: cartão de "mês pendente" pra assinante de Mensalidade.
-    NOTA INTERNA: só aparece quando o backend confirma que NÃO existe um
-    Relatorio (tipo_produto=Mensalidade, mes_referencia=mês atual) pra
-    este cliente ainda — ver Relatorio em database.py, no repositório
-    SAF. Ou seja: existe Relatorio deste mês? some este cartão. Não
-    existe? mostra este cartão com o botão de baixo.
-    -->
-    <div class="card-relatorio" style="border-color: var(--laranja);">
-      <div class="topo">
-        <div>
-          <h2>Faltam os dados de Outubro</h2>
-          <div class="data">Sua análise mensal depende deles</div>
-        </div>
-        <span class="selo-status processando" style="background: var(--laranja-fraco); color: var(--laranja);">Pendente</span>
-      </div>
-      <p style="margin-bottom:18px;">Joga os dados de vendas e financeiro do mês lá, igual sempre — leva menos de 2 minutos.</p>
-      <div class="acoes-card">
-        <a href="formulario-vendas-mensal.html" class="btn btn-primario">Enviar dados do mês</a>
-      </div>
-    </div>
-
-    <!-- Exemplo de relatório pronto -->
-    <div class="card-relatorio">
-      <div class="topo">
-        <div>
-          <h2>Diagnóstico Financeiro</h2>
-          <div class="data">Entregue em 12 de setembro de 2026</div>
-        </div>
-        <span class="selo-status pronto">Pronto</span>
-      </div>
-      <div class="placeholder-video">
-        <span class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <p>Vídeo personalizado do diagnóstico (exemplo)</p>
-      </div>
-      <div class="acoes-card">
-        <a href="#" class="btn btn-primario">Baixar PDF</a>
-        <a href="#" class="btn btn-secundario">Assistir novamente</a>
-      </div>
-    </div>
-
-    <!-- Exemplo de relatório em processamento (Mensalidade) -->
-    <div class="card-relatorio">
-      <div class="topo">
-        <div>
-          <h2>Acompanhamento Mensal | Outubro 2026</h2>
-          <div class="data">Dados recebidos em 3 de outubro de 2026</div>
-        </div>
-        <span class="selo-status processando">Processando</span>
-      </div>
-      <div class="processando-msg">Sua análise está sendo gerada. Você recebe um email assim que estiver pronta.</div>
-    </div>
-
-    <!-- Upsell: Acompanhamento Mensal -->
-    <div class="card-relatorio">
-      <div class="topo">
-        <div>
-          <h2>Gostou do diagnóstico?</h2>
-          <div class="data">Continue com clareza todo mês, não só uma vez</div>
-        </div>
-      </div>
-      <p style="margin-bottom:18px;">Com o Acompanhamento Mensal, você recebe o mesmo tipo de análise (lucro real, margem, canais e prioridades) todo mês, com comparativo de evolução.</p>
-      <div class="acoes-card">
-        <a href="mensal.html" class="btn btn-secundario">Ver proposta mensal</a>
-        <a href="contrato-mensal.html" class="btn btn-primario">Comprar</a>
-      </div>
-    </div>
-
+    <div id="cartoes"></div>
   </div>
 </section>
 
 <footer>Finspots | Inteligência de Vendas e Finanças para E-commerce</footer>
+
+<script>
+  var API_URL = 'https://saf-production.up.railway.app';
+  var NOMES_MES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+  var agora = new Date();
+  var periodoAtual = NOMES_MES[agora.getMonth()] + '/' + agora.getFullYear();
+
+  var elCarregando = document.getElementById('carregando');
+  var elErro = document.getElementById('erro-lista');
+  var elCartoes = document.getElementById('cartoes');
+
+  function escaparHtml(texto) {
+    var div = document.createElement('div');
+    div.textContent = texto == null ? '' : String(texto);
+    return div.innerHTML;
+  }
+
+  function formatarData(iso) {
+    try {
+      return new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso));
+    } catch (erro) {
+      return iso;
+    }
+  }
+
+  function tituloRelatorio(r) {
+    if (r.tipo_produto === 'Mensalidade') {
+      return 'Acompanhamento Mensal' + (r.mes_referencia ? ' | ' + escaparHtml(r.mes_referencia) : '');
+    }
+    return 'Diagnóstico Financeiro';
+  }
+
+  function cartaoPendente() {
+    return '' +
+      '<div class="card-relatorio" style="border-color: var(--laranja);">' +
+        '<div class="topo">' +
+          '<div><h2>Faltam os dados de ' + escaparHtml(NOMES_MES[agora.getMonth()]) + '</h2>' +
+          '<div class="data">Sua análise mensal depende deles</div></div>' +
+          '<span class="selo-status processando">Pendente</span>' +
+        '</div>' +
+        '<p style="margin-bottom:18px;">Joga os dados de vendas e financeiro do mês lá, igual sempre — leva menos de 2 minutos.</p>' +
+        '<div class="acoes-card"><a href="formulario-vendas-mensal.html" class="btn btn-primario">Enviar dados do mês</a></div>' +
+      '</div>';
+  }
+
+  function cartaoRelatorio(r) {
+    var titulo = tituloRelatorio(r);
+    var dataFormatada = escaparHtml(formatarData(r.criado_em));
+
+    if (r.status === 'pronto') {
+      var blocoVideo = r.video_url
+        ? '<video class="video-relatorio" controls preload="none" src="' + escaparHtml(r.video_url) + '"></video>'
+        : '<div class="placeholder-video"><p>Vídeo indisponível no momento.</p></div>';
+      var botaoPdf = r.pdf_url
+        ? '<a href="' + escaparHtml(r.pdf_url) + '" class="btn btn-primario" target="_blank" rel="noopener">Baixar PDF</a>'
+        : '';
+      return '' +
+        '<div class="card-relatorio">' +
+          '<div class="topo"><div><h2>' + titulo + '</h2><div class="data">Entregue em ' + dataFormatada + '</div></div>' +
+            '<span class="selo-status pronto">Pronto</span></div>' +
+          blocoVideo +
+          '<div class="acoes-card">' + botaoPdf + '</div>' +
+        '</div>';
+    }
+
+    if (r.status === 'revisao_manual') {
+      return '' +
+        '<div class="card-relatorio">' +
+          '<div class="topo"><div><h2>' + titulo + '</h2><div class="data">Dados recebidos em ' + dataFormatada + '</div></div>' +
+            '<span class="selo-status processando">Em revisão</span></div>' +
+          '<div class="processando-msg">Nossa equipe está revisando seus dados manualmente antes de liberar sua análise. Você recebe um email assim que estiver pronta.</div>' +
+        '</div>';
+    }
+
+    if (r.status === 'erro') {
+      return '' +
+        '<div class="card-relatorio" style="border-color: var(--laranja);">' +
+          '<div class="topo"><div><h2>' + titulo + '</h2><div class="data">Dados recebidos em ' + dataFormatada + '</div></div>' +
+            '<span class="selo-status erro">Erro</span></div>' +
+          '<div class="processando-msg">Algo deu errado ao gerar essa análise. Nossa equipe já foi avisada — se precisar, chama no WhatsApp.</div>' +
+        '</div>';
+    }
+
+    // "processando" (default/fallback)
+    return '' +
+      '<div class="card-relatorio">' +
+        '<div class="topo"><div><h2>' + titulo + '</h2><div class="data">Dados recebidos em ' + dataFormatada + '</div></div>' +
+          '<span class="selo-status processando">Processando</span></div>' +
+        '<div class="processando-msg">Sua análise está sendo gerada. Você recebe um email assim que estiver pronta.</div>' +
+      '</div>';
+  }
+
+  function cartaoUpsell() {
+    return '' +
+      '<div class="card-relatorio">' +
+        '<div class="topo"><div><h2>Gostou do diagnóstico?</h2>' +
+          '<div class="data">Continue com clareza todo mês, não só uma vez</div></div></div>' +
+        '<p style="margin-bottom:18px;">Com o Acompanhamento Mensal, você recebe o mesmo tipo de análise (lucro real, margem, canais e prioridades) todo mês, com comparativo de evolução.</p>' +
+        '<div class="acoes-card">' +
+          '<a href="mensal.html" class="btn btn-secundario">Ver proposta mensal</a>' +
+          '<a href="contrato-mensal.html" class="btn btn-primario">Comprar</a>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function renderizar(relatorios) {
+    var relatoriosMensalidade = relatorios.filter(function (r) { return r.tipo_produto === 'Mensalidade'; });
+    var jaAssinanteMensalidade = relatoriosMensalidade.length > 0;
+    var temRelatorioMesAtual = relatoriosMensalidade.some(function (r) { return r.mes_referencia === periodoAtual; });
+
+    var html = '';
+    if (jaAssinanteMensalidade && !temRelatorioMesAtual) {
+      html += cartaoPendente();
+    }
+    relatorios.forEach(function (r) { html += cartaoRelatorio(r); });
+    if (!jaAssinanteMensalidade) {
+      html += cartaoUpsell();
+    }
+    elCartoes.innerHTML = html;
+  }
+
+  fetch(API_URL + '/minha-area/relatorios', { credentials: 'include' })
+    .then(function (resposta) {
+      if (resposta.status === 401) {
+        window.location.href = 'entrar.html';
+        return null;
+      }
+      if (!resposta.ok) throw new Error('status ' + resposta.status);
+      return resposta.json();
+    })
+    .then(function (relatorios) {
+      if (relatorios === null) return; // já redirecionando pro login
+      elCarregando.style.display = 'none';
+      renderizar(relatorios);
+    })
+    .catch(function (erro) {
+      console.error('Falha ao carregar relatórios da Minha Área:', erro);
+      elCarregando.style.display = 'none';
+      elErro.style.display = 'block';
+    });
+</script>
 
 </body>
 </html>
