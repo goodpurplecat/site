@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finspots | Envie os dados do mês</title>
+<meta name="description" content="Upload mensal de vendas e financeiro para o Acompanhamento Mensal Finspots.">
+<link rel="icon" type="image/png" href="assets/img/finspots-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--azul: #071730;
+--quase-preto: #00031B;
+--laranja: #FF5500;
+--laranja-fraco: rgba(255,85,0,0.13);
+--branco: #FFFFFF;
+--suave: #A9B2D6;
+--fraco: #6B76A8;
+--borda: rgba(255,255,255,0.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+background-color: var(--azul); color: var(--branco);
+line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--laranja); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+.wrap-estreito { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+section { padding: 56px 0; }
+.central { text-align: center; }
+
+h1 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; line-height: 1.2; letter-spacing: -0.4px; }
+h2 { font-size: 19px; font-weight: 700; }
+p { color: var(--suave); font-size: 15px; }
+
+.btn {
+display: inline-block; font-family: inherit; font-size: 15px; font-weight: 600;
+text-decoration: none; padding: 15px 30px; border-radius: 10px; border: none; cursor: pointer;
+}
+.btn-primario { background: var(--laranja); color: var(--branco); width: 100%; }
+
+header { padding: 26px 0; text-align: center; }
+.logo { font-size: 21px; font-weight: 800; letter-spacing: -0.3px; text-decoration: none; display: inline-block; }
+.logo img { height: 42px; }
+
+.selo-mes {
+display: inline-flex; align-items: center; gap: 8px; background: var(--laranja-fraco); color: var(--laranja);
+font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-top: 18px;
+}
+
+.aviso-nao-conectado {
+background: rgba(255,85,0,0.1); border: 1px solid var(--laranja); border-radius: 10px;
+padding: 14px 18px; font-size: 13px; color: var(--suave); margin-bottom: 32px; text-align: left;
+}
+.aviso-nao-conectado strong { color: var(--laranja); }
+
+.form-grupo { margin-bottom: 32px; text-align: left; }
+.form-grupo .titulo-grupo { display: block; font-size: 15px; font-weight: 700; color: var(--branco); margin-bottom: 6px; }
+.form-grupo .subtitulo-grupo { display: block; font-size: 13px; color: var(--fraco); margin-bottom: 16px; }
+.campo { margin-bottom: 16px; }
+.campo label { display: block; font-size: 13px; color: var(--suave); margin-bottom: 6px; }
+.campo input[type=text], .campo input[type=number] {
+width: 100%; background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 8px;
+padding: 12px 14px; color: var(--branco); font-family: inherit; font-size: 14px;
+}
+.duas-colunas-campo { display: grid; gap: 14px; }
+@media (min-width: 560px) { .duas-colunas-campo { grid-template-columns: 1fr 1fr; } }
+
+.upload-area { border: 1.5px dashed var(--borda); border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 14px; }
+.upload-area input[type=file] { margin-top: 14px; color: var(--suave); font-size: 13px; }
+.upload-area .exemplos { font-size: 12px; color: var(--fraco); margin-top: 10px; }
+.upload-area.destaque { border-color: var(--laranja); background: rgba(255,85,0,0.05); }
+
+.lista-instrucoes { text-align: left; font-size: 13.5px; color: var(--suave); padding-left: 18px; margin-top: 10px; }
+.lista-instrucoes li { margin-bottom: 6px; }
+.lista-instrucoes b { color: var(--branco); }
+
+footer { padding: 30px 0; text-align: center; font-size: 13px; color: var(--fraco); }
+b, strong { color: var(--branco); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+<a href="index.html" class="logo"><img src="assets/img/finspots-logo.png" alt="Finspots" style="height:42px;"></a>
+</header>
+
+<section class="central" style="padding-bottom:0;">
+<div class="wrap-estreito">
+<h1>Joga os dados do mês aqui</h1>
+<p style="margin-top:12px;">Mesma lógica de sempre: você sobe o que tiver, a gente cuida do resto. Leva menos de 2 minutos.</p>
+<!--
+NOTA INTERNA (pra quem conectar isso ao backend): o mês de referência
+abaixo deve vir PREENCHIDO AUTOMATICAMENTE pelo mês corrente da sessão
+do cliente (via o link mágico / login de Minha Área) — nunca pedir pro
+cliente escolher o mês, pra não abrir margem de erro (mandar o mês
+errado sem querer). Ver mes_referencia em Relatorio (database.py, no
+repositório SAF).
+-->
+<span class="selo-mes" id="seloMes">Mês de referência: carregando…</span>
+</div>
+</section>
+
+<section style="padding-top:32px;">
+<div class="wrap-estreito">
+<div class="aviso-nao-conectado">
+<strong>Nota interna:</strong> este formulário ainda não está conectado ao backend — o botão de envio é um placeholder, e o "Mês de referência" acima está fixo em JS só pra preview. Quando for ligar de verdade: enviar pra um endpoint tipo <code>/mensalidade/enviar-mes</code> (paralelo ao <code>/processar</code> do Diagnóstico) que dispara <code>IAExtratoraVendas.extrair_pedidos()</code> nos arquivos de vendas e o fluxo normal de tratamento nos arquivos financeiros — ambos em <code>dp-01/tratamento/</code> no repositório SAF.
+</div>
+
+<form onsubmit="return false;">
+
+<div class="form-grupo">
+<span class="titulo-grupo">Vendas do mês</span>
+<span class="subtitulo-grupo">O relatório de pedidos que você baixa da própria plataforma de vendas, ou sua planilha de controle.</span>
+<div class="upload-area destaque">
+<p><strong>Envie o export de cada canal que você usa</strong> (pode subir mais de um arquivo).</p>
+<input type="file" name="arquivos_vendas" multiple>
+<p class="exemplos">Exemplos: relatório de vendas do Mercado Livre, da Shopee, da Shopify, ou sua própria planilha de pedidos.</p>
+</div>
+<ul class="lista-instrucoes">
+<li>Não precisa organizar nada — manda como baixou da plataforma.</li>
+<li>Pra gente identificar produto, cliente e canal certinho, o arquivo precisa ter pelo menos: <b>o nome/código do produto</b>, <b>um identificador do comprador</b> (email, ID, CPF/telefone) e <b>o valor da venda</b>.</li>
+<li>Sem uma dessas três colunas, aquela linha específica não entra no cálculo — mas o resto do arquivo continua sendo usado normalmente.</li>
+</ul>
+</div>
+
+<div class="form-grupo">
+<span class="titulo-grupo">Financeiro do mês</span>
+<span class="subtitulo-grupo">Os mesmos números de sempre — extrato, custos, anúncios.</span>
+<div class="upload-area">
+<input type="file" name="arquivos_financeiro" multiple>
+<p class="exemplos">Exemplos: extrato bancário, relatório de anúncios, planilha de custos fixos/variáveis.</p>
+</div>
+</div>
+
+<button type="submit" class="btn btn-primario">Enviar dados do mês</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div>Finspots: os dados enviados aqui são usados exclusivamente para gerar sua análise mensal.</div>
+</footer>
+
+<script>
+// NOTA INTERNA: placeholder só pra preview — a versão real recebe o mês
+// de referência do backend (sessão do link mágico), nunca calcula no
+// cliente.
+document.getElementById('seloMes').textContent = 'Mês de referência: ' +
+  new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' }).format(new Date());
+</script>
+
+</body>
+</html>

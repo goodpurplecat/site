@@ -92,7 +92,29 @@
     <p style="margin-top:10px;">Tudo que a Finspots já entregou pra você, num só lugar.</p>
 
     <div class="aviso-nao-conectado" style="margin-top:28px;">
-      <strong>Nota interna:</strong> os dois cartões abaixo são exemplo, pra mostrar como a página fica. A versão real busca os dados de <code>GET /minha-area/relatorios</code> (autenticado pela sessão do link mágico) e monta um cartão desses pra cada item da resposta; o vídeo/PDF de verdade vêm de URLs temporárias assinadas do R2, não de arquivo fixo.
+      <strong>Nota interna:</strong> os cartões abaixo são exemplo, pra mostrar como a página fica. A versão real busca os dados de <code>GET /minha-area/relatorios</code> (autenticado pela sessão do link mágico) e monta um cartão desses pra cada item da resposta; o vídeo/PDF de verdade vêm de URLs temporárias assinadas do R2, não de arquivo fixo.
+    </div>
+
+    <!--
+    NOVIDADE: cartão de "mês pendente" pra assinante de Mensalidade.
+    NOTA INTERNA: só aparece quando o backend confirma que NÃO existe um
+    Relatorio (tipo_produto=Mensalidade, mes_referencia=mês atual) pra
+    este cliente ainda — ver Relatorio em database.py, no repositório
+    SAF. Ou seja: existe Relatorio deste mês? some este cartão. Não
+    existe? mostra este cartão com o botão de baixo.
+    -->
+    <div class="card-relatorio" style="border-color: var(--laranja);">
+      <div class="topo">
+        <div>
+          <h2>Faltam os dados de Outubro</h2>
+          <div class="data">Sua análise mensal depende deles</div>
+        </div>
+        <span class="selo-status processando" style="background: var(--laranja-fraco); color: var(--laranja);">Pendente</span>
+      </div>
+      <p style="margin-bottom:18px;">Joga os dados de vendas e financeiro do mês lá, igual sempre — leva menos de 2 minutos.</p>
+      <div class="acoes-card">
+        <a href="formulario-vendas-mensal.html" class="btn btn-primario">Enviar dados do mês</a>
+      </div>
     </div>
 
     <!-- Exemplo de relatório pronto -->
