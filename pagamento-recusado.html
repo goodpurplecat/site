@@ -87,7 +87,12 @@
     </ul>
 
     <div class="btns">
-      <a href="formulario-diagnostico.html" class="btn btn-primario">Tentar novamente</a>
+      <!-- CORREÇÃO (auditoria 16/09/2026): apontava pra formulario-diagnostico.html
+           (formulário de dados, ainda nem conectado ao backend — ver nota interna
+           nesse arquivo), não pro fluxo de pagamento. Quem teve o cartão recusado
+           precisa voltar pra tela de pagamento (contrato.html), não pra um
+           formulário sem envio nenhum. -->
+      <a href="contrato.html" class="btn btn-primario">Tentar novamente</a>
       <a href="https://wa.me/5562996677168" target="_blank" rel="noopener" class="btn btn-secundario">Falar no WhatsApp</a>
     </div>
   </div>
