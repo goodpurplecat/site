@@ -50,9 +50,29 @@ header { padding: 26px 0; text-align: center; }
 background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 14px;
 padding: 28px 26px; margin: 32px 0; text-align: left; font-size: 14px; color: var(--suave);
 }
-.contrato-caixa h2 { font-size: 15px; color: var(--branco); margin-bottom: 10px; margin-top: 18px; }
-.contrato-caixa h2:first-child { margin-top: 0; }
+.contrato-caixa h2 { font-size: 15px; color: var(--branco); margin-bottom: 10px; margin-top: 22px; }
+.contrato-caixa > h2:first-child, .contrato-caixa .caixa-head:first-child h2 { margin-top: 0; }
 .contrato-caixa p { margin-bottom: 4px; font-size: 13.5px; }
+
+.caixa-head { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+.caixa-head:first-child { margin-top: 0; }
+.caixa-head h2 { margin: 0; }
+.icone {
+width: 36px; height: 36px; border-radius: 10px;
+background: var(--laranja-fraco); flex-shrink: 0;
+display: flex; align-items: center; justify-content: center;
+}
+.icone svg { width: 17px; height: 17px; stroke: var(--laranja); fill: none; stroke-width: 1.8; }
+
+.lista-check { list-style: none; margin-top: 12px; display: grid; gap: 10px; }
+.lista-check li { display: flex; gap: 10px; font-size: 13.5px; color: var(--suave); align-items: flex-start; }
+.check-marca {
+width: 18px; height: 18px; border-radius: 50%; background: var(--laranja-fraco);
+flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.check-marca svg { width: 10px; height: 10px; stroke: var(--laranja); stroke-width: 3; fill: none; }
+
+.preco-destaque { font-size: 20px; font-weight: 800; color: var(--laranja); }
 
 .aceite {
 display: flex; align-items: flex-start; gap: 10px; text-align: left;
@@ -83,19 +103,31 @@ footer { padding: 30px 0; text-align: center; font-size: 12.5px; color: var(--fr
 <h1>Antes de continuar, confirme os termos</h1>
 <p style="margin-top:10px;">Rapidinho: 1 minuto de leitura.</p>
 
-<!-- PLACEHOLDER: texto de contrato genérico, substituir pelo termo real assim que estiver pronto -->
 <div class="contrato-caixa">
+<div class="caixa-head">
+<span class="icone"><svg viewBox="0 0 24 24"><path d="M21 8V21H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg></span>
 <h2>O que você está contratando</h2>
-<p>Diagnóstico Financeiro Finspots: análise pontual da sua operação de e-commerce, com entrega em vídeo personalizado + PDF.</p>
+</div>
+<p><b style="color:var(--branco);">Diagnóstico Financeiro Finspots:</b> uma análise pontual da sua operação de e-commerce, com diagnóstico dos principais pontos financeiros e de vendas.</p>
+<p style="margin-top:12px;">Você recebe:</p>
+<ul class="lista-check">
+<li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b style="color:var(--branco);">PDF personalizado</b> com a análise</span></li>
+<li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Análise de <b style="color:var(--branco);">até 3 canais de venda</b></span></li>
+<li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b style="color:var(--branco);">Vídeo personalizado</b> explicando os principais achados e o que fazer</span></li>
+<li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b style="color:var(--branco);">Suporte via WhatsApp por até 30 dias</b> após a entrega do diagnóstico</span></li>
+</ul>
 
+<div class="caixa-head">
+<span class="icone"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
 <h2>Investimento</h2>
-<p>R$ 800, pagamento único.</p>
+</div>
+<p><span class="preco-destaque">R$ 800,00</span> em pagamento único.</p>
 
-<h2>O que não está incluso</h2>
-<p>Contabilidade, obrigações fiscais ou acesso às suas contas. Você envia os dados, a Finspots analisa.</p>
-
+<div class="caixa-head">
+<span class="icone"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
 <h2>Garantia</h2>
-<p>30 dias. Se o diagnóstico não entregar a clareza esperada, reembolso integral.</p>
+</div>
+<p>Você tem <b style="color:var(--branco);">7 dias de garantia</b>. Se, dentro desse período, entender que o diagnóstico não entregou a clareza esperada, poderá solicitar o reembolso integral do valor pago.</p>
 </div>
 
 <div class="campo-email">
