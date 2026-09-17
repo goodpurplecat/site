@@ -230,7 +230,7 @@
   fetch(API_URL + '/minha-area/relatorios', { credentials: 'include' })
     .then(function (resposta) {
       if (resposta.status === 401) {
-        window.location.href = 'entrar.html';
+        window.location.href = 'login.html';
         return null;
       }
       if (!resposta.ok) throw new Error('status ' + resposta.status);

@@ -161,7 +161,7 @@ document.getElementById('seloMes').textContent = 'Mês de referência: ' + NOMES
 // descobrir na hora de enviar que o link mágico expirou.
 fetch(API_URL + '/minha-area/relatorios', { credentials: 'include' })
   .then(function (resposta) {
-    if (resposta.status === 401) window.location.href = 'entrar.html';
+    if (resposta.status === 401) window.location.href = 'login.html';
   })
   .catch(function () { /* checagem só antecipa o problema — o envio confere de novo */ });
 
@@ -297,7 +297,7 @@ form.addEventListener('submit', function (ev) {
     })
     .then(function (resposta) {
       if (resposta.status === 401) {
-        window.location.href = 'entrar.html';
+        window.location.href = 'login.html';
         return null;
       }
       if (!resposta.ok) {
