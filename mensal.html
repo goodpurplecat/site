@@ -221,7 +221,8 @@
   .item-icone p { font-size: 14.5px; }
 
   @media (min-width: 720px) {
-    .lista-icones.duas-colunas { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+    .lista-icones.duas-colunas { display: block; column-count: 2; column-gap: 40px; }
+    .lista-icones.duas-colunas .item-icone { break-inside: avoid; margin-bottom: 30px; }
   }
 
   .categoria-label {
