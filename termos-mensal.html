@@ -39,22 +39,10 @@
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
   .wrap-estreito { max-width: 620px; margin: 0 auto; padding: 0 24px; }
-  .wrap-termos { max-width: 760px; margin: 0 auto; padding: 0 24px; }
   main { flex: 1; display: flex; align-items: center; padding: 60px 0; }
-  .central { text-align: center; width: 100%; }
-  .central p { max-width: 480px; margin-left: auto; margin-right: auto; }
 
   h1 { font-size: clamp(28px, 4.2vw, 38px); font-weight: 800; line-height: 1.2; letter-spacing: -0.4px; }
   p { color: var(--suave); font-size: 16px; }
-
-  .btn {
-    display: inline-block; font-family: inherit; font-size: 14px; font-weight: 600;
-    text-decoration: none; padding: 11px 22px; border-radius: 9px; border: none; cursor: pointer;
-    transition: transform 0.15s ease;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primario { background: var(--laranja); color: var(--branco); }
-  .btn-secundario { background: transparent; color: var(--branco); border: 1.5px solid var(--borda); }
 
   header { padding: 26px 0; }
   .header-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
@@ -67,74 +55,6 @@
   footer .links span { margin: 0 8px; }
 
   b, strong { color: var(--branco); font-weight: 700; }
-
-  /* ---------- Badge de data ---------- */
-  .badge-data {
-    display: inline-block; font-size: 12.5px; color: var(--laranja); background: var(--laranja-fraco);
-    padding: 6px 14px; border-radius: 100px; font-weight: 600; margin-bottom: 18px;
-  }
-
-  /* ---------- Ícones ---------- */
-  .icone {
-    width: 42px; height: 42px; border-radius: 11px;
-    background: var(--laranja-fraco); flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .icone svg { width: 20px; height: 20px; stroke: var(--laranja); fill: none; stroke-width: 1.8; }
-
-  /* ---------- Dados rápidos ---------- */
-  .dados-rapidos { display: grid; gap: 14px; margin: 32px 0 40px; text-align: left; }
-  @media (min-width: 640px) { .dados-rapidos { grid-template-columns: repeat(3, 1fr); } }
-  .dado-rapido {
-    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 14px;
-    padding: 18px 20px; display: flex; align-items: center; gap: 14px;
-  }
-  .dado-rapido h3 { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--fraco); font-weight: 600; margin-bottom: 3px; }
-  .dado-rapido p { font-size: 14.5px; color: var(--branco); margin: 0; }
-  .dado-rapido a { color: var(--laranja); text-decoration: underline; text-underline-offset: 2px; }
-
-  /* ---------- Sumário ---------- */
-  .sumario {
-    background: var(--quase-preto); border: 1px solid var(--borda); border-radius: 16px;
-    padding: 28px 30px; margin: 8px 0 52px; text-align: left;
-  }
-  .sumario h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--fraco); margin-bottom: 16px; font-weight: 700; }
-  .sumario-lista { list-style: none; display: grid; gap: 11px; }
-  @media (min-width: 640px) { .sumario-lista { grid-template-columns: 1fr 1fr; column-gap: 28px; } }
-  .sumario-lista a { font-size: 14.5px; color: var(--suave); text-decoration: none; display: flex; gap: 9px; }
-  .sumario-lista a:hover { color: var(--laranja); }
-  .sumario-lista span.num { color: var(--laranja); font-weight: 700; min-width: 18px; }
-
-  /* ---------- Seções ---------- */
-  .secao { text-align: left; margin: 0 0 44px; scroll-margin-top: 20px; }
-  .secao-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
-  .secao-head h2 { font-size: 18.5px; font-weight: 700; letter-spacing: -0.2px; }
-  .secao-corpo p { font-size: 15px; margin-top: 10px; }
-  .secao-corpo p:first-child { margin-top: 0; }
-  .secao-corpo .nota { font-size: 13px; color: var(--fraco); margin-top: 10px; }
-
-  /* ---------- Listas de check ---------- */
-  .lista-check { list-style: none; margin-top: 14px; display: grid; gap: 12px; }
-  .lista-check li { display: flex; gap: 12px; font-size: 14.5px; color: var(--suave); align-items: flex-start; }
-  .check-marca {
-    width: 20px; height: 20px; border-radius: 50%; background: var(--laranja-fraco);
-    flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px;
-  }
-  .check-marca svg { width: 11px; height: 11px; stroke: var(--laranja); stroke-width: 3; fill: none; }
-
-  /* ---------- Preço em destaque ---------- */
-  .card-preco {
-    background: linear-gradient(135deg, rgba(255,85,0,0.14), rgba(255,85,0,0.03));
-    border: 1px solid rgba(255,85,0,0.3); border-radius: 14px;
-    padding: 20px 24px; margin: 16px 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
-  }
-  .card-preco .valor { font-size: 26px; font-weight: 800; color: var(--laranja); }
-  .card-preco .periodo { font-size: 14px; color: var(--suave); }
-
-  hr.divisor { border: none; border-top: 1px solid var(--borda); margin: 8px 0 48px; }
-
-  .assinatura { font-size: 13px; color: var(--fraco); }
-  .assinatura strong { color: var(--suave); }
 </style>
 </head>
 <body>
@@ -144,331 +64,106 @@
     <a href="index.html" class="logo"><img src="assets/img/finspots-logo.png" alt="Finspots"></a>
   </div>
 </header>
+<main style="display:block; padding: 70px 0;"><div class="wrap-estreito">
+    <h1 style="margin-bottom:14px;">Condições de Contratação</h1>
+    <p style="color:var(--fraco); font-size:13px;">Acompanhamento Mensal de Inteligência Financeira e de Vendas</p>
 
-<main style="display:block; padding: 60px 0 20px;"><div class="wrap-termos">
+    <p style="margin-top:20px; font-size:14px;">Estas Condições de Contratação estabelecem as regras aplicáveis à contratação do <b>Acompanhamento Mensal Finspots</b>, realizada por meio do site oficial da Finspots.</p>
+    <p style="margin-top:10px; font-size:14px;">Ao marcar a opção de aceite e concluir a compra, o cliente declara que leu, compreendeu e concorda com estas condições.</p>
 
-  <div class="central" style="margin-bottom:8px;">
-    <span class="badge-data">Última atualização: 16 de setembro de 2026</span>
-    <h1>Condições de Contratação</h1>
-    <p style="margin-top:10px; font-size:15px;">Acompanhamento Mensal de Inteligência Financeira e de Vendas</p>
-    <p style="margin-top:18px; font-size:14px;">Estas Condições de Contratação estabelecem as regras aplicáveis à contratação do <strong>Acompanhamento Mensal Finspots</strong>, realizada por meio do site oficial da Finspots. Ao marcar a opção de aceite e concluir a compra, você declara que leu, compreendeu e concorda com estas condições.</p>
-  </div>
+    <p style="margin-top:24px;"><b>1. Quem presta o serviço</b><br>
+    Prestadora: Helaynne Alessandra Santos Freitas<br>
+    CPF: 092.069.591-40<br>
+    Nome comercial: Finspots<br>
+    WhatsApp: (62) 99667-7168</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">O cliente será identificado pelos dados informados no momento da contratação através do site oficial da Finspots.</p>
 
-  <div class="dados-rapidos">
-    <div class="dado-rapido">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></span>
-      <div><h3>Prestadora</h3><p>Helaynne A. S. Freitas<br>CPF 092.069.591-40</p></div>
-    </div>
-    <div class="dado-rapido">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.4" fill="var(--laranja)" stroke="none"/></svg></span>
-      <div><h3>Nome comercial</h3><p>Finspots</p></div>
-    </div>
-    <div class="dado-rapido">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
-      <div><h3>WhatsApp</h3><p><a href="https://wa.me/5562996677168" target="_blank" rel="noopener">(62) 99667-7168</a></p></div>
-    </div>
-  </div>
+    <p style="margin-top:14px;"><b>2. O que está sendo contratado</b><br>O Acompanhamento Mensal Finspots é um serviço recorrente de inteligência financeira e de vendas para operações de e-commerce. A cada ciclo mensal, a Finspots analisa os dados fornecidos pelo cliente, acompanha a evolução dos principais indicadores e apresenta os principais pontos de atenção, oportunidades e prioridades de ação. O plano contratado contempla até 3 (três) canais de venda.</p>
 
-  <nav class="sumario" aria-label="Sumário">
-    <h2>Nesta página</h2>
-    <ul class="sumario-lista">
-      <li><a href="#sec-1"><span class="num">01</span> Quem presta o serviço</a></li>
-      <li><a href="#sec-2"><span class="num">02</span> O que está sendo contratado</a></li>
-      <li><a href="#sec-3"><span class="num">03</span> O que está incluído</a></li>
-      <li><a href="#sec-4"><span class="num">04</span> Dados necessários</a></li>
-      <li><a href="#sec-5"><span class="num">05</span> Prazo de entrega</a></li>
-      <li><a href="#sec-6"><span class="num">06</span> Valor e pagamento</a></li>
-      <li><a href="#sec-7"><span class="num">07</span> Vigência</a></li>
-      <li><a href="#sec-8"><span class="num">08</span> Cancelamento</a></li>
-      <li><a href="#sec-9"><span class="num">09</span> Obrigações da Finspots</a></li>
-      <li><a href="#sec-10"><span class="num">10</span> Obrigações do cliente</a></li>
-      <li><a href="#sec-11"><span class="num">11</span> Confidencialidade</a></li>
-      <li><a href="#sec-12"><span class="num">12</span> Responsabilidade sobre os dados</a></li>
-      <li><a href="#sec-13"><span class="num">13</span> Natureza das análises</a></li>
-      <li><a href="#sec-14"><span class="num">14</span> Suporte via WhatsApp</a></li>
-      <li><a href="#sec-15"><span class="num">15</span> Proteção de dados pessoais</a></li>
-      <li><a href="#sec-16"><span class="num">16</span> Encerramento por inadimplência</a></li>
-      <li><a href="#sec-17"><span class="num">17</span> Aceite da contratação</a></li>
-      <li><a href="#sec-18"><span class="num">18</span> Alterações destas condições</a></li>
-      <li><a href="#sec-19"><span class="num">19</span> Legislação aplicável</a></li>
-    </ul>
-  </nav>
+    <p style="margin-top:14px;"><b>3. O que está incluído</b><br>A cada mês, conforme os dados disponibilizados pelo cliente, o Acompanhamento Mensal Finspots inclui:</p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) DRE mensal, incluindo receita, margem de contribuição, margem líquida e lucro;<br>
+    b) Comparação com o mês anterior e análise da evolução ou regressão dos principais indicadores;<br>
+    c) Análise de desempenho por canal de venda;<br>
+    d) Inteligência de vendas, incluindo análise de produtos, margens, produtos sem movimentação e indicadores relacionados à base de clientes, quando houver dados disponíveis;<br>
+    e) Identificação de alertas financeiros e respectivos níveis de prioridade;<br>
+    f) Definição das principais ações recomendadas para o período;<br>
+    g) Análise do ciclo financeiro e de possíveis riscos de caixa;<br>
+    h) Acompanhamento de metas, comparando resultados realizados e metas informadas pelo cliente;<br>
+    i) Relatório em PDF com os principais indicadores, análises e insights;<br>
+    j) Vídeo personalizado com a apresentação dos resultados;<br>
+    k) Suporte via WhatsApp para dúvidas relacionadas às análises e ao acompanhamento.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">O serviço contempla até 3 (três) canais de venda por ciclo mensal. A inclusão de canais adicionais poderá depender de contratação ou condição comercial específica.</p>
 
-  <section class="secao" id="sec-1">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></span>
-      <h2>1. Quem presta o serviço</h2>
-    </div>
-    <div class="secao-corpo">
-      <p><strong>Prestadora:</strong> Helaynne Alessandra Santos Freitas</p>
-      <p><strong>CPF:</strong> 092.069.591-40</p>
-      <p><strong>Nome comercial:</strong> Finspots</p>
-      <p><strong>WhatsApp:</strong> (62) 99667-7168</p>
-      <p class="nota">Você será identificado(a) pelos dados informados no momento da contratação através do site oficial da Finspots.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>4. Dados necessários para o acompanhamento</b><br>A qualidade e a abrangência das análises dependem diretamente dos dados fornecidos pelo cliente. O cliente é responsável por enviar mensalmente os relatórios e informações solicitados pela Finspots, de forma completa, correta e dentro do prazo necessário para a realização da análise. Caso sejam identificados dados ausentes, inconsistentes ou insuficientes, a Finspots poderá solicitar informações complementares.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">O prazo de entrega de cada análise será contado após o recebimento completo dos dados necessários.</p>
 
-  <section class="secao" id="sec-2">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
-      <h2>2. O que está sendo contratado</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>O <strong>Acompanhamento Mensal Finspots</strong> é um serviço recorrente de inteligência financeira e de vendas para operações de e-commerce.</p>
-      <p>A cada ciclo mensal, a Finspots analisa os dados fornecidos por você, acompanha a evolução dos principais indicadores e apresenta os principais pontos de atenção, oportunidades e prioridades de ação.</p>
-      <p>O plano contratado contempla <strong>até 3 (três) canais de venda</strong>.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>5. Prazo de entrega</b><br>A análise mensal será entregue em até 3 (três) dias úteis após o recebimento completo dos dados necessários de cada mês.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Caso sejam necessárias informações complementares ou correções nos dados enviados, o prazo poderá ser ajustado, sendo o cliente informado sobre a necessidade.</p>
 
-  <section class="secao" id="sec-3">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>
-      <h2>3. O que está incluído</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A cada mês, conforme os dados que você disponibilizar, o Acompanhamento Mensal Finspots inclui:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>DRE mensal, incluindo receita, margem de contribuição, margem líquida e lucro</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Comparação com o mês anterior e análise da evolução ou regressão dos principais indicadores</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Análise de desempenho por canal de venda</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Inteligência de vendas: produtos, margens, itens sem movimentação e indicadores da base de clientes, quando houver dados disponíveis</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Identificação de alertas financeiros e respectivos níveis de prioridade</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Definição das principais ações recomendadas para o período</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Análise do ciclo financeiro e de possíveis riscos de caixa</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Acompanhamento de metas, comparando resultados realizados e metas informadas por você</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><strong>Relatório em PDF</strong> com os principais indicadores, análises e insights</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><strong>Vídeo personalizado</strong> com a apresentação dos resultados</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><strong>Suporte via WhatsApp</strong> para dúvidas relacionadas às análises e ao acompanhamento</span></li>
-      </ul>
-      <p class="nota">O serviço contempla até 3 (três) canais de venda por ciclo mensal. A inclusão de canais adicionais poderá depender de contratação ou condição comercial específica.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>6. Valor e pagamento</b><br>O valor do Acompanhamento Mensal Finspots é de R$ 1.200,00 (mil e duzentos reais) por mês, para até 3 (três) canais de venda. A cobrança é recorrente e automática, processada pelo Mercado Pago através do checkout disponibilizado no site oficial da Finspots. A primeira cobrança ocorre no momento da contratação. As cobranças seguintes serão realizadas automaticamente de acordo com o ciclo de cobrança estabelecido no momento da contratação.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">A prestação do serviço está condicionada à confirmação do pagamento correspondente ao ciclo.</p>
 
-  <section class="secao" id="sec-4">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
-      <h2>4. Dados necessários para o acompanhamento</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A qualidade e a abrangência das análises dependem diretamente dos dados que você fornecer.</p>
-      <p>Você é responsável por enviar mensalmente os relatórios e informações solicitados pela Finspots, de forma completa, correta e dentro do prazo necessário para a realização da análise.</p>
-      <p>Caso sejam identificados dados ausentes, inconsistentes ou insuficientes, a Finspots poderá solicitar informações complementares.</p>
-      <p class="nota">O prazo de entrega de cada análise será contado após o recebimento completo dos dados necessários.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>7. Vigência</b><br>A contratação tem vigência por prazo indeterminado, iniciada após a confirmação do primeiro pagamento. A assinatura permanece ativa enquanto não houver solicitação de cancelamento ou outra hipótese de encerramento prevista nestas condições.</p>
 
-  <section class="secao" id="sec-5">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
-      <h2>5. Prazo de entrega</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A análise mensal será entregue em até <strong>3 (três) dias úteis</strong> após o recebimento completo dos dados necessários de cada mês.</p>
-      <p class="nota">Caso sejam necessárias informações complementares ou correções nos dados enviados, o prazo poderá ser ajustado — você será informado(a) sobre a necessidade.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>8. Cancelamento</b><br>O cliente pode cancelar a assinatura a qualquer momento, sem necessidade de aviso prévio e sem cobrança de multa. A solicitação poderá ser realizada por meio dos canais oficiais de atendimento da Finspots ou pelo mecanismo de cancelamento disponibilizado no processo de contratação, quando aplicável.</p>
+    <p style="margin-top:8px; font-size:14px;">Após o cancelamento:<br>
+    a) as cobranças futuras serão interrompidas;<br>
+    b) o cliente mantém acesso aos serviços correspondentes ao ciclo já pago até o seu encerramento;<br>
+    c) não haverá novas cobranças após o cancelamento.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">O cancelamento não implica reembolso proporcional de um ciclo mensal que já tenha sido iniciado, ressalvados os direitos previstos na legislação aplicável e eventuais condições específicas informadas no momento da contratação.</p>
 
-  <section class="secao" id="sec-6">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
-      <h2>6. Valor e pagamento</h2>
-    </div>
-    <div class="secao-corpo">
-      <div class="card-preco"><span class="valor">R$ 1.200,00</span><span class="periodo">por mês, para até 3 (três) canais de venda</span></div>
-      <p>A cobrança é <strong>recorrente e automática</strong>, processada pelo Mercado Pago através do checkout disponibilizado no site oficial da Finspots.</p>
-      <p>A primeira cobrança ocorre no momento da contratação. As cobranças seguintes serão realizadas automaticamente de acordo com o ciclo de cobrança estabelecido no momento da contratação.</p>
-      <p class="nota">A prestação do serviço está condicionada à confirmação do pagamento correspondente ao ciclo.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>9. Obrigações da Finspots</b><br>A Finspots compromete-se a:</p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) Executar as análises contratadas com diligência e dentro dos prazos estabelecidos;<br>
+    b) Manter a confidencialidade das informações recebidas;<br>
+    c) Comunicar ao cliente eventuais situações que possam impactar a execução ou o prazo de entrega;<br>
+    d) Disponibilizar mensalmente o PDF, o vídeo personalizado e os demais entregáveis previstos no serviço;<br>
+    e) Disponibilizar o suporte via WhatsApp enquanto a assinatura estiver ativa.</p>
 
-  <section class="secao" id="sec-7">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <h2>7. Vigência</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A contratação tem <strong>vigência por prazo indeterminado</strong>, iniciada após a confirmação do primeiro pagamento.</p>
-      <p>A assinatura permanece ativa enquanto não houver solicitação de cancelamento ou outra hipótese de encerramento prevista nestas condições.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>10. Obrigações do cliente</b><br>O cliente compromete-se a:</p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) Fornecer mensalmente os relatórios e informações necessários para a análise;<br>
+    b) Enviar dados completos, verdadeiros e atualizados;<br>
+    c) Informar eventuais alterações relevantes na operação que possam impactar a interpretação dos dados;<br>
+    d) Manter o pagamento da assinatura em dia.</p>
 
-  <section class="secao" id="sec-8">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
-      <h2>8. Cancelamento</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>Você pode <strong>cancelar a assinatura a qualquer momento</strong>, sem necessidade de aviso prévio e sem cobrança de multa.</p>
-      <p>A solicitação poderá ser feita pelos canais oficiais de atendimento da Finspots ou pelo mecanismo de cancelamento disponibilizado no processo de contratação, quando aplicável.</p>
-      <p>Após o cancelamento:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>As cobranças futuras serão interrompidas</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Você mantém acesso aos serviços correspondentes ao ciclo já pago até o seu encerramento</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Não haverá novas cobranças após o cancelamento</span></li>
-      </ul>
-      <p class="nota">O cancelamento não implica reembolso proporcional de um ciclo mensal já iniciado, ressalvados os direitos previstos na legislação aplicável e eventuais condições específicas informadas no momento da contratação.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>11. Confidencialidade</b><br>A Finspots compromete-se a preservar a confidencialidade dos dados financeiros, comerciais, documentos e demais informações fornecidas pelo cliente durante a prestação do serviço e após o encerramento da contratação. As informações confidenciais serão utilizadas para as finalidades relacionadas à prestação do serviço, atendimento ao cliente e cumprimento de obrigações legais.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Para fins de portfólio, comunicação ou produção de conteúdo, a Finspots poderá utilizar informações e resultados de forma anonimizada, desde que não seja possível identificar o cliente ou sua empresa.</p>
 
-  <section class="secao" id="sec-9">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-      <h2>9. Obrigações da Finspots</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A Finspots compromete-se a:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Executar as análises contratadas com diligência e dentro dos prazos estabelecidos</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Manter a confidencialidade das informações recebidas</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Comunicar eventuais situações que possam impactar a execução ou o prazo de entrega</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Disponibilizar mensalmente o PDF, o vídeo personalizado e os demais entregáveis previstos no serviço</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Disponibilizar o suporte via WhatsApp enquanto a assinatura estiver ativa</span></li>
-      </ul>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>12. Responsabilidade sobre os dados fornecidos</b><br>A Finspots realizará as análises com base nas informações disponibilizadas pelo cliente. A Finspots não se responsabiliza por erros, omissões, informações desatualizadas ou inconsistências existentes nos dados fornecidos pelo cliente.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">Quando forem identificadas inconsistências relevantes que possam comprometer a análise, a Finspots poderá solicitar correções ou informações complementares.</p>
 
-  <section class="secao" id="sec-10">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></span>
-      <h2>10. Obrigações do cliente</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>Você se compromete a:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Fornecer mensalmente os relatórios e informações necessários para a análise</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Enviar dados completos, verdadeiros e atualizados</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Informar eventuais alterações relevantes na operação que possam impactar a interpretação dos dados</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Manter o pagamento da assinatura em dia</span></li>
-      </ul>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>13. Natureza das análises e não garantia de resultados</b><br>O acompanhamento possui caráter analítico e orientativo. As análises e recomendações são elaboradas com base nos dados disponíveis em cada ciclo e têm como objetivo auxiliar o cliente na compreensão da evolução financeira e comercial de sua operação. A decisão de implementar ou não qualquer recomendação, bem como a execução das ações decorrentes das análises, é de responsabilidade do cliente.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">A Finspots não garante resultados financeiros específicos, aumento de faturamento, redução de custos ou determinado nível de lucro como consequência das recomendações apresentadas.</p>
 
-  <section class="secao" id="sec-11">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-      <h2>11. Confidencialidade</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A Finspots compromete-se a preservar a confidencialidade dos dados financeiros, comerciais, documentos e demais informações fornecidas por você durante a prestação do serviço e após o encerramento da contratação.</p>
-      <p>As informações confidenciais serão utilizadas apenas para as finalidades relacionadas à prestação do serviço, atendimento e cumprimento de obrigações legais.</p>
-      <p class="nota">Para fins de portfólio, comunicação ou produção de conteúdo, a Finspots poderá utilizar informações e resultados de forma <strong>anonimizada</strong>, desde que não seja possível identificar você ou sua empresa.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>14. Suporte via WhatsApp</b><br>O suporte via WhatsApp faz parte do Acompanhamento Mensal enquanto a assinatura estiver ativa. O suporte é destinado a dúvidas relacionadas às análises, aos relatórios, aos vídeos e às informações apresentadas pela Finspots.</p>
+    <p style="margin-top:8px; font-size:14px;">O suporte não inclui, salvo contratação adicional:<br>
+    a) execução de tarefas pelo cliente;<br>
+    b) gestão da operação;<br>
+    c) implementação das estratégias recomendadas;<br>
+    d) novas análises fora do escopo mensal;<br>
+    e) elaboração de relatórios adicionais não previstos no serviço.</p>
 
-  <section class="secao" id="sec-12">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M10.3 3.9L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
-      <h2>12. Responsabilidade sobre os dados fornecidos</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A Finspots realizará as análises com base nas informações que você disponibilizar.</p>
-      <p>A Finspots não se responsabiliza por erros, omissões, informações desatualizadas ou inconsistências existentes nos dados fornecidos.</p>
-      <p class="nota">Quando forem identificadas inconsistências relevantes que possam comprometer a análise, a Finspots poderá solicitar correções ou informações complementares.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>15. Proteção de dados pessoais</b><br>Os dados pessoais fornecidos durante a contratação e durante a execução do serviço serão tratados de acordo com a <a href="privacidade.html" style="color:var(--laranja); text-decoration:underline;">Política de Privacidade</a> da Finspots e com a legislação aplicável de proteção de dados. Os dados poderão ser utilizados para processar a contratação, prestar o serviço, manter comunicação com o cliente, oferecer suporte e cumprir obrigações legais.</p>
 
-  <section class="secao" id="sec-13">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg></span>
-      <h2>13. Natureza das análises e não garantia de resultados</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>O acompanhamento possui caráter <strong>analítico e orientativo</strong>.</p>
-      <p>As análises e recomendações são elaboradas com base nos dados disponíveis em cada ciclo e têm como objetivo ajudar você a entender a evolução financeira e comercial da sua operação.</p>
-      <p>A decisão de implementar ou não qualquer recomendação, bem como a execução das ações decorrentes das análises, é de sua responsabilidade.</p>
-      <p class="nota">A Finspots não garante resultados financeiros específicos, aumento de faturamento, redução de custos ou determinado nível de lucro como consequência das recomendações apresentadas.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>16. Encerramento por inadimplência ou descumprimento</b><br>A Finspots poderá suspender ou encerrar a prestação do serviço em caso de inadimplemento ou descumprimento relevante das condições de contratação pelo cliente. Em caso de falha no pagamento de uma cobrança recorrente, a continuidade do serviço poderá ficar condicionada à regularização do pagamento.</p>
 
-  <section class="secao" id="sec-14">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
-      <h2>14. Suporte via WhatsApp</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>O suporte via WhatsApp faz parte do Acompanhamento Mensal enquanto a assinatura estiver ativa.</p>
-      <p>É destinado a <strong>dúvidas relacionadas às análises, aos relatórios, aos vídeos e às informações apresentadas pela Finspots</strong>.</p>
-      <p>Salvo contratação adicional, o suporte não inclui:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Execução de tarefas pelo cliente</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Gestão da operação</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Implementação das estratégias recomendadas</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Novas análises fora do escopo mensal</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Elaboração de relatórios adicionais não previstos no serviço</span></li>
-      </ul>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>17. Aceite da contratação</b><br>Antes de finalizar a compra, o cliente terá acesso a estas Condições de Contratação. Ao marcar a caixa de aceite e concluir o pagamento pelo site oficial da Finspots, o cliente declara que:</p>
+    <p style="margin-top:8px; font-size:14px;">
+    a) teve acesso às condições da contratação;<br>
+    b) leu e compreendeu as informações apresentadas;<br>
+    c) concorda com o escopo do serviço, valor, recorrência, forma de pagamento, prazo de entrega e condições de cancelamento;<br>
+    d) fornece os dados necessários para a realização do serviço.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--fraco);">O registro eletrônico da contratação poderá incluir os dados informados pelo cliente, data e horário da compra, informações do pedido e registro do aceite das condições.</p>
 
-  <section class="secao" id="sec-15">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-      <h2>15. Proteção de dados pessoais</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>Os dados pessoais fornecidos durante a contratação e a execução do serviço serão tratados de acordo com a <a href="privacidade.html" style="color:var(--laranja); text-decoration:underline;">Política de Privacidade</a> da Finspots e com a legislação aplicável de proteção de dados.</p>
-      <p class="nota">Os dados poderão ser utilizados para processar a contratação, prestar o serviço, manter comunicação com você, oferecer suporte e cumprir obrigações legais.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>18. Alterações destas condições</b><br>A Finspots poderá atualizar estas Condições de Contratação para refletir alterações no serviço, no processo de contratação ou em requisitos legais. A versão aplicável à contratação será aquela apresentada ao cliente no momento da compra, sem prejuízo das regras aplicáveis a alterações posteriores durante uma assinatura ativa.</p>
 
-  <section class="secao" id="sec-16">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg></span>
-      <h2>16. Encerramento por inadimplência ou descumprimento</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A Finspots poderá suspender ou encerrar a prestação do serviço em caso de inadimplemento ou descumprimento relevante das condições de contratação.</p>
-      <p class="nota">Em caso de falha no pagamento de uma cobrança recorrente, a continuidade do serviço poderá ficar condicionada à regularização do pagamento.</p>
-    </div>
-  </section>
+    <p style="margin-top:14px;"><b>19. Legislação aplicável</b><br>Estas condições serão interpretadas de acordo com a legislação brasileira aplicável. Eventuais dúvidas ou conflitos relacionados à contratação serão, inicialmente, tratados por meio dos canais oficiais de atendimento da Finspots, sem prejuízo dos direitos assegurados ao cliente pela legislação aplicável.</p>
 
-  <section class="secao" id="sec-17">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg></span>
-      <h2>17. Aceite da contratação</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>Antes de finalizar a compra, você terá acesso a estas Condições de Contratação.</p>
-      <p>Ao marcar a caixa de aceite e concluir o pagamento pelo site oficial da Finspots, você declara que:</p>
-      <ul class="lista-check">
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Teve acesso às condições da contratação</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Leu e compreendeu as informações apresentadas</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Concorda com o escopo do serviço, valor, recorrência, forma de pagamento, prazo de entrega e condições de cancelamento</span></li>
-        <li><span class="check-marca"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span>Fornece os dados necessários para a realização do serviço</span></li>
-      </ul>
-      <p class="nota">O registro eletrônico da contratação poderá incluir os dados informados por você, data e horário da compra, informações do pedido e registro do aceite das condições.</p>
-    </div>
-  </section>
+    <p style="margin-top:28px; font-size:13px;">Finspots — Inteligência de Vendas e Finanças para E-commerce<br>Helaynne Alessandra Santos Freitas, CPF: 092.069.591-40</p>
 
-  <section class="secao" id="sec-18">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.5a9 9 0 0 1 15-6.7L21 8.1"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.5a9 9 0 0 1-15 6.7L3 15.9"/></svg></span>
-      <h2>18. Alterações destas condições</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>A Finspots poderá atualizar estas Condições de Contratação para refletir alterações no serviço, no processo de contratação ou em requisitos legais.</p>
-      <p class="nota">A versão aplicável à contratação será aquela apresentada a você no momento da compra, sem prejuízo das regras aplicáveis a alterações posteriores durante uma assinatura ativa.</p>
-    </div>
-  </section>
-
-  <section class="secao" id="sec-19" style="margin-bottom:0;">
-    <div class="secao-head">
-      <span class="icone"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-      <h2>19. Legislação aplicável</h2>
-    </div>
-    <div class="secao-corpo">
-      <p>Estas condições serão interpretadas de acordo com a legislação brasileira aplicável.</p>
-      <p class="nota">Eventuais dúvidas ou conflitos relacionados à contratação serão, inicialmente, tratados pelos canais oficiais de atendimento da Finspots, sem prejuízo dos direitos assegurados a você pela legislação aplicável.</p>
-    </div>
-  </section>
-
-  <hr class="divisor">
-
-  <div class="assinatura">
-    <p style="color:var(--suave); margin-bottom:6px;"><strong>Finspots</strong> — Inteligência de Vendas e Finanças para E-commerce</p>
-    <p class="assinatura">Prestadora: Helaynne Alessandra Santos Freitas · CPF: 092.069.591-40 · WhatsApp: (62) 99667-7168</p>
-    <p class="assinatura" style="margin-top:6px;">Última atualização: 16 de setembro de 2026</p>
-  </div>
-
+    <p style="margin-top:24px; font-size:13px; color:var(--fraco);">Última atualização: 16 de setembro de 2026</p>
 </div>
 </main>
 
