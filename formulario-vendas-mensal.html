@@ -115,15 +115,15 @@ b, strong { color: var(--branco); font-weight: 700; }
 <p class="exemplos">Exemplos: relatório de vendas do Mercado Livre, da Shopee, da Shopify, ou sua própria planilha de pedidos (CSV ou Excel).</p>
 </div>
 <ul class="lista-instrucoes">
-<li>Não precisa organizar nada — manda como baixou da plataforma.</li>
+<li>Não precisa organizar nada, manda como baixou da plataforma.</li>
 <li>Pra gente identificar produto, cliente e canal certinho, o arquivo precisa ter pelo menos: <b>o nome/código do produto</b>, <b>um identificador do comprador</b> (email, ID, CPF/telefone) e <b>o valor da venda</b>.</li>
-<li>Sem uma dessas três colunas, aquela linha específica não entra no cálculo — mas o resto do arquivo continua sendo usado normalmente.</li>
+<li>Sem uma dessas três colunas, aquela linha específica não entra no cálculo, mas o resto do arquivo continua sendo usado normalmente.</li>
 </ul>
 </div>
 
 <div class="form-grupo">
 <span class="titulo-grupo">Financeiro do mês</span>
-<span class="subtitulo-grupo">Os mesmos números de sempre — extrato, custos, anúncios.</span>
+<span class="subtitulo-grupo">Os mesmos números de sempre: extrato, custos, anúncios.</span>
 <div class="upload-area">
 <input type="file" name="arquivos_financeiro" multiple accept=".csv,.txt,.xlsx,.xls,.pdf">
 <p class="exemplos">Exemplos: extrato bancário, relatório de anúncios, planilha de custos fixos/variáveis (CSV, Excel ou PDF).</p>
@@ -318,7 +318,7 @@ form.addEventListener('submit', function (ev) {
       var mensagemLeitura = erro.message && erro.message.indexOf('Não consegui ler') === 0;
       mostrarErro(mensagemLeitura
         ? erro.message
-        : 'Não foi possível enviar seus dados agora. Confira sua conexão e tenta de novo — se persistir, chama no WhatsApp.');
+        : 'Não foi possível enviar seus dados agora. Confira sua conexão e tenta de novo. Se persistir, chama no WhatsApp.');
     });
 });
 </script>
