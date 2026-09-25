@@ -198,6 +198,25 @@
       '</div>';
   }
 
+  // NOVIDADE (24/09/2026): quem já pagou mas ainda não mandou o formulário
+  // (fechou a aba depois do pagamento, por exemplo) cai aqui sem nenhum
+  // relatório. Sem esse cartão, ficava sem caminho pra enviar os dados.
+  function cartaoEnviarDados() {
+    return '' +
+      '<div class="card-relatorio" style="border-color: var(--laranja);">' +
+        '<div class="topo">' +
+          '<div><h2>Falta enviar seus dados</h2>' +
+          '<div class="data">Sua análise começa assim que eles chegarem</div></div>' +
+          '<span class="selo-status processando">Pendente</span>' +
+        '</div>' +
+        '<p style="margin-bottom:18px;">Preencha o formulário e anexe seus arquivos (extratos, relatórios de vendas, planilhas). Leva poucos minutos.</p>' +
+        '<div class="acoes-card">' +
+          '<a href="formulario-diagnostico.html" class="btn btn-primario">Enviar dados do Diagnóstico</a>' +
+          '<a href="formulario-vendas-mensal.html" class="btn btn-secundario">Sou do Acompanhamento Mensal</a>' +
+        '</div>' +
+      '</div>';
+  }
+
   function cartaoUpsell() {
     return '' +
       '<div class="card-relatorio">' +
@@ -215,6 +234,11 @@
     var relatoriosMensalidade = relatorios.filter(function (r) { return r.tipo_produto === 'Mensalidade'; });
     var jaAssinanteMensalidade = relatoriosMensalidade.length > 0;
     var temRelatorioMesAtual = relatoriosMensalidade.some(function (r) { return r.mes_referencia === periodoAtual; });
+
+    if (relatorios.length === 0) {
+      elCartoes.innerHTML = cartaoEnviarDados();
+      return;
+    }
 
     var html = '';
     if (jaAssinanteMensalidade && !temRelatorioMesAtual) {
